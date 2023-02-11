@@ -15,28 +15,31 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
     this.payment=payment;
 }
 //Global Variables
-    
+    let inputEmail=$("#inputEmail");
+    let inputPassword=$("#inputPassword");
+    let inputName=$("#inputName");
+    let inputLastName=$("#inputLastName");
+    let inputNumber=$("#inputNumber");
+    let inputAge=$("#inputAge");
+    let inputColor=$("#inputColor");
+    let inputCity=$("#inputCity");
+    let inputState=$("#inputState");
+    let inputZip=$("#inputZip");
+    let inputPayment=$("#inputPayment");
     
     function registerUser(){
-        let inputEmail=$("#inputEmail").val();
-        let inputPassword=$("#inputPassword").val();
-        let inputName=$("#inputName").val();
-        let inputLastName=$("#inputLastName").val();
-        let inputNumber=$("#inputNumber").val();
-        let inputAge=$("#inputAge").val();
-        let inputColor=$("#inputColor").val();
-        let inputCity=$("#inputCity").val();
-        let inputState=$("#inputState").val();
-        let inputZip=$("#inputZip").val();
-        let inputPayment=$("#inputPayment").val();
-        console.log(inputEmail,inputPassword,inputName,inputLastName,inputNumber,inputAge,inputColor,inputCity,inputState,inputZip,inputPayment)
-        let newUser = new User(inputEmail,inputPassword,inputName,inputLastName,inputNumber,inputAge,inputColor,inputCity,inputState,inputZip,inputPayment);
+        console.log(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val())
+        let newUser = new User(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val());
         console.log(newUser);
     }
 
+    function clearUser(){
+        $("input").val("");
+    }
 
 
 function init(){
     $("#btnAdd").click(registerUser);
+    $("#btnAdd").click(clearUser);
 }
 window.onload=init;
