@@ -17,11 +17,12 @@
         </nav>
     </header>
     <main>
-        <h2>Add a new user</h2>
-        <form class="row g-3">
+      <h2>Add a new user</h2>
+        <div class="form">
+          <form class="row g-3">
             <div class="col-md-6">
-              <label for="inputEmai" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmai">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="text" class="form-control" id="inputEmail">
             </div>
             <div class="col-md-6">
               <label for="inputPassword" class="form-label">Password</label>
@@ -29,7 +30,7 @@
             </div>
             <div class="col-md-6">
                 <label for="inputName" class="form-label">First Name</label>
-                <input type="email" class="form-control" id="inputName">
+                <input type="text" class="form-control" id="inputName">
             </div>
             <div class="col-md-6">
                 <label for="inputLastName" class="form-label">Last Name</label>
@@ -73,16 +74,17 @@
                   <option>...</option>
                 </select>
               </div>
-            
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary" id="btnAdd">Add</button>
-            </div>
-        </form>
+          </form>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" id="btnAdd">Add</button>
+          </div>
+        </div>
     </main>
     <footer>
 
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-    <script src="scripts/practice.js"></script>
+    <script src="scripts/practrice.js"></script>
+    <script src="scripts/register.js"></script>
 </body>
 </html>
