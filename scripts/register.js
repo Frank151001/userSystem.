@@ -27,19 +27,51 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
     let inputZip=$("#inputZip");
     let inputPayment=$("#inputPayment");
     
+    function validation(user){
+        let valid=true;
+        if(user.email==""){
+            valid=false;
+            $("#inputEmail").addClass("alert-error"); 
+        }
+        if(user.password==""){
+            valid=false;
+            $("#inputPassword").addClass("alert-error"); 
+        }
+        if(user.name==""){
+            valid=false;
+            $("#inputName").addClass("alert-error"); 
+        }
+        if(user.lastName==""){
+            valid=false;
+            $("#inputLastName").addClass("alert-error"); 
+        }
+        if(user.payment==""){
+            valid=false;
+            $("#inputPayment").addClass("alert-error"); 
+        }
+        return valid;
+    }
+    function validatePass(){
+        let password=inputPassword.val();
+        if(password.legnth<6){
+            inputPasswrod.css("background-color","red");
+        }else{
+            inputPasswrod.css("background-color","green");
+        }
+    }
     function registerUser(){
         console.log(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val())
         let newUser = new User(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val());
         console.log(newUser);
-    }
-
-    function clearUser(){
+        //clear the forum
         $("input").val("");
+
+        if(validation(newUser)){
+            saveUser(newUser);
+        }
     }
-
-
 function init(){
     $("#btnAdd").click(registerUser);
-    $("#btnAdd").click(clearUser);
+    $("#txtPassword").keyup(validatePass);
 }
 window.onload=init;

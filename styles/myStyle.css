@@ -1,0 +1,7 @@
+.alert-error{
+    background-color: rgb(179, 101, 101);
+    border: 2px solid red;
+}
+.hide{
+    display: none;
+}
