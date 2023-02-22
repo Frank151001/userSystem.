@@ -1,6 +1,6 @@
 console.log("register");
 //Constructor
-function User(email,password,name,lastName,number,age,color,address,city,state,zip,payment){
+function User(email,password,name,lastName,number,age,color,address,city,zip,payment){
     this.email=email;
     this.password=password;
     this.name=name;
@@ -10,7 +10,6 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
     this.color=color;
     this.adress=address;
     this.city=city;
-    this.state=state;
     this.zip=zip;
     this.payment=payment;
 }
@@ -23,7 +22,6 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
     let inputAge=$("#inputAge");
     let inputColor=$("#inputColor");
     let inputCity=$("#inputCity");
-    let inputState=$("#inputState");
     let inputZip=$("#inputZip");
     let inputPayment=$("#inputPayment");
     
@@ -52,19 +50,21 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
         return valid;
     }
     function validatePass(){
-        let password=inputPassword.val();
-        if(password.legnth<6){
+        let inputPassword=$("#inputPassword");
+        let password= inputPassword.val();
+        if(password.legnth<4){
             inputPasswrod.css("background-color","red");
         }else{
             inputPasswrod.css("background-color","green");
         }
     }
     function registerUser(){
-        console.log(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val())
-        let newUser = new User(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputState.val(),inputZip.val(),inputPayment.val());
+        console.log(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputZip.val(),inputPayment.val())
+        let newUser = new User(inputEmail.val(),inputPassword.val(),inputName.val(),inputLastName.val(),inputNumber.val(),inputAge.val(),inputColor.val(),inputCity.val(),inputZip.val(),inputPayment.val());
         console.log(newUser);
         //clear the forum
         $("input").val("");
+        $("select").val('');
 
         if(validation(newUser)){
             saveUser(newUser);
@@ -72,6 +72,6 @@ function User(email,password,name,lastName,number,age,color,address,city,state,z
     }
 function init(){
     $("#btnAdd").click(registerUser);
-    $("#txtPassword").keyup(validatePass);
+    $("#inputPassword").keyup(validatePass);
 }
 window.onload=init;

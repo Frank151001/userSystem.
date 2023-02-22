@@ -1,11 +1,11 @@
 function login(){
-    let pass=$("#txtPassword").val();
-    let uname=$("#txtUserName").val();
+    let inputPassword=$("#txtPassword").val();
+    let inputUserName=$("#txtUserName").val();
     let flag=true;
     let users = readUsers();
     for(let i=0;i<users.length;i++){
         let user = users[i];
-        if(pass==user.password && uname==user.email){
+        if(inputPassword==user.password && inputUserName==user.email){
             window.location="users.html"
         }else{
             flag=false;
@@ -15,6 +15,6 @@ function login(){
         $("#alert-error").removeClass("hide");
         setTimeout(function(){
             $("#alert-error").addClass("hide");
-        },3000);
+        },1000);
     }
 }
